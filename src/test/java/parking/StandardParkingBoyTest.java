@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingBoyTest {
+public class StandardParkingBoyTest {
 
 
     public static final String CAR_NAME = "CAR_NAME";
@@ -16,13 +16,12 @@ public class ParkingBoyTest {
     @Test
     public void test_given_car_when_park_then_the_car_is_parked(){
         //GIVEN
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
         ParkingLot parkingLot = new ParkingLot();
-
         //WHEN
-        Receipt receipt = parkingBoy.park(car, parkingLot);
+        Receipt receipt = standardParkingBoy.park(car, parkingLot);
 
         //THEN
         Assert.assertEquals(CAR_NAME, receipt.getCarName());
@@ -32,12 +31,12 @@ public class ParkingBoyTest {
     @Test
     public void should_return_receipt_when_park_car_given_multiple_parking_lot() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
         List<ParkingLot> parkingLots = createMultipleParkingLots();
         //when
-        Receipt receipt = parkingBoy.park(car, parkingLots);
+        Receipt receipt = standardParkingBoy.park(car, parkingLots);
         //then
         Assert.assertNotNull(receipt);
     }

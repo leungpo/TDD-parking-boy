@@ -2,7 +2,7 @@ package parking;
 
 import java.util.List;
 
-public class ParkingBoy implements Parkable{
+public class StandardParkingBoy implements Parkable {
     @Override
     public Receipt park(Car car, ParkingLot parkingLot) {
         return ReceiptCreator.createReceipt(car,parkingLot);
