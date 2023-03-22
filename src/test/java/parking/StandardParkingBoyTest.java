@@ -41,6 +41,20 @@ public class StandardParkingBoyTest {
         Assert.assertNotNull(receipt);
     }
 
+    @Test
+    public void should_return_car_when_fetch_car_given_parking_lot() {
+        //given
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        Car car = new Car();
+        car.setName(CAR_NAME);
+        ParkingLot parkingLot = new ParkingLot();
+        Receipt receipt = standardParkingBoy.park(car, parkingLot);
+        //when
+        Car receivedCar = standardParkingBoy.fetch(receipt, parkingLot);
+        //then
+        Assert.assertEquals(car,receivedCar);
+    }
+
     private static List<ParkingLot> createMultipleParkingLots() {
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLotOne = new ParkingLot();
