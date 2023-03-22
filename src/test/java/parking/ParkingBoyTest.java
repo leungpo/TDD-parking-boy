@@ -6,37 +6,40 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingManagerTest {
+public class ParkingBoyTest {
+
+
     public static final String CAR_NAME = "CAR_NAME";
     public static final String PARKING_LOT_ONE = "parkingLotOne";
     public static final String PARKING_LOT_TWO = "parkingLotTwo";
 
     @Test
-    public void should_like_cosco_parking_boy_when_park_given_Monday() {
-        //given
-        int weekday = 1;
-        ParkingManager parkingManager = new ParkingManager(weekday);
+    public void test_given_car_when_park_then_the_car_is_parked(){
+        //GIVEN
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
-        List<ParkingLot> parkingLots = createMultipleParkingLots();
-        Receipt receipt = parkingManager.park(car, parkingLots);
-        //then
-        Assert.assertEquals(PARKING_LOT_ONE,receipt.getParkingLotName());
+        ParkingLot parkingLot = new ParkingLot();
 
+        //WHEN
+        Receipt receipt = parkingBoy.park(car, parkingLot);
+
+        //THEN
+        Assert.assertEquals(CAR_NAME, receipt.getCarName());
     }
 
+
     @Test
-    public void should_like_oocl_parking_boy_when_park_given_Tuesday() {
+    public void should_return_receipt_when_park_car_given_multiple_parking_lot() {
         //given
-        int weekday = 2;
-        ParkingManager parkingManager = new ParkingManager(weekday);
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
         List<ParkingLot> parkingLots = createMultipleParkingLots();
-        Receipt receipt = parkingManager.park(car, parkingLots);
+        //when
+        Receipt receipt = parkingBoy.park(car, parkingLots);
         //then
-        Assert.assertEquals(PARKING_LOT_TWO,receipt.getParkingLotName());
-
+        Assert.assertNotNull(receipt);
     }
 
     private static List<ParkingLot> createMultipleParkingLots() {
