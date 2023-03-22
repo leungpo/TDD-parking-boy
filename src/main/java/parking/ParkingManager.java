@@ -3,7 +3,7 @@ package parking;
 import java.util.Comparator;
 import java.util.List;
 
-public class ParkingManager implements Parkable{
+public class ParkingManager{
 
     AbstractParkingStrategy parkingStrategy;
 
@@ -15,9 +15,9 @@ public class ParkingManager implements Parkable{
         }
     }
 
-    @Override
+
     public Receipt park(Car car, ParkingLot parkingLot) {
-        return ReceiptCreator.createReceipt(car,parkingLot);
+        return parkingStrategy.park(car,parkingLot);
     }
     public Receipt park(Car car, List<ParkingLot> parkingLots) {
         return parkingStrategy.park(car,parkingLots);

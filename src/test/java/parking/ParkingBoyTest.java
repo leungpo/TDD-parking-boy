@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StandardParkingBoyTest {
+public class ParkingBoyTest {
 
 
     public static final String CAR_NAME = "CAR_NAME";
@@ -16,12 +16,13 @@ public class StandardParkingBoyTest {
     @Test
     public void test_given_car_when_park_then_the_car_is_parked(){
         //GIVEN
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
         ParkingLot parkingLot = new ParkingLot();
+
         //WHEN
-        Receipt receipt = standardParkingBoy.park(car, parkingLot);
+        Receipt receipt = parkingBoy.park(car, parkingLot);
 
         //THEN
         Assert.assertEquals(CAR_NAME, receipt.getCarName());
@@ -31,12 +32,12 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_receipt_when_park_car_given_multiple_parking_lot() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
         List<ParkingLot> parkingLots = createMultipleParkingLots();
         //when
-        Receipt receipt = standardParkingBoy.park(car, parkingLots);
+        Receipt receipt = parkingBoy.park(car, parkingLots);
         //then
         Assert.assertNotNull(receipt);
     }
@@ -44,13 +45,13 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_car_when_fetch_car_given_parking_lot() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
         ParkingLot parkingLot = new ParkingLot();
-        Receipt receipt = standardParkingBoy.park(car, parkingLot);
+        Receipt receipt = parkingBoy.park(car, parkingLot);
         //when
-        Car receivedCar = standardParkingBoy.fetch(receipt, parkingLot);
+        Car receivedCar = parkingBoy.fetch(receipt, parkingLot);
         //then
         Assert.assertEquals(car,receivedCar);
     }
@@ -58,13 +59,13 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_car_when_fetch_car_given_multiple_parking_lot() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car();
         car.setName(CAR_NAME);
         List<ParkingLot> parkingLots = createMultipleParkingLots();
-        Receipt receipt = standardParkingBoy.park(car, parkingLots);
+        Receipt receipt = parkingBoy.park(car, parkingLots);
         //when
-        Car receivedCar = standardParkingBoy.fetch(receipt, parkingLots);
+        Car receivedCar = parkingBoy.fetch(receipt, parkingLots);
         //then
         Assert.assertEquals(car, receivedCar);
     }
