@@ -5,9 +5,8 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Comparator;
 import java.util.List;
 
-public class CoscoParkingBoy implements Parkable{
+public class CoscoParkingBoy{
 
-    @Override
     public Receipt park(Car car, ParkingLot parkingLot) {
         return ReceiptCreator.createReceipt(car,parkingLot);
     }

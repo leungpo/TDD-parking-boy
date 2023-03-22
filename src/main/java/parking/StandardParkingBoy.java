@@ -13,10 +13,20 @@ public class StandardParkingBoy implements Parkable, Fetchable {
 
     public Receipt park(Car car, List<ParkingLot> parkingLots) {
         ParkingLot selectedParkingLot = parkingLots.get(0);
-        return ReceiptCreator.createReceipt(car,selectedParkingLot);
+        Receipt receipt = ReceiptCreator.createReceipt(car,selectedParkingLot);
+        selectedParkingLot.getParkingCar().put(receipt, car);
+        return receipt;
     }
 
     public Car fetch(Receipt receipt, ParkingLot parkingLot) {
         return parkingLot.getParkingCar().get(receipt);
+    }
+
+    public Car fetch(Receipt receipt, List<ParkingLot> parkingLots) {
+        ParkingLot selectedParkingLot = parkingLots.stream()
+                                        .filter(parkingLot -> parkingLot.getParkingCar().containsKey(receipt))
+                                        .findFirst()
+                                        .orElse(null);
+        return selectedParkingLot.getParkingCar().get(receipt);
     }
 }

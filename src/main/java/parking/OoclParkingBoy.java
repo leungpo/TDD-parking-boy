@@ -3,10 +3,10 @@ package parking;
 import java.util.Comparator;
 import java.util.List;
 
-public class OoclParkingBoy implements Parkable{
+public class OoclParkingBoy{
 
     OoclParkingStrategy ooclParkingStrategy = new OoclParkingStrategy();
-    @Override
+
     public Receipt park(Car car, ParkingLot parkingLot) {
         return ooclParkingStrategy.park(car,parkingLot);
     }
