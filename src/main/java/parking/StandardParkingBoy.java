@@ -3,7 +3,7 @@ package parking;
 import java.util.HashMap;
 import java.util.List;
 
-public class StandardParkingBoy implements Parkable {
+public class StandardParkingBoy implements Parkable, Fetchable {
     @Override
     public Receipt park(Car car, ParkingLot parkingLot) {
         Receipt receipt = ReceiptCreator.createReceipt(car,parkingLot);
