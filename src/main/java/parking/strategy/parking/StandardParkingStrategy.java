@@ -1,8 +1,14 @@
-package parking;
+package parking.strategy.parking;
+
+import parking.*;
+import parking.exception.NoSeatException;
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
 
 import java.util.List;
 
-public class StandardParkingStrategy extends AbstractParkingStrategy{
+public class StandardParkingStrategy extends AbstractParkingStrategy {
 
 
     public StandardParkingStrategy(List<ParkingLot> parkingLots) {

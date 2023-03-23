@@ -1,4 +1,9 @@
-package parking;
+package parking.parkingBoy;
+
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
+import parking.strategy.parking.OoclParkingStrategy;
 
 import java.util.List;
 

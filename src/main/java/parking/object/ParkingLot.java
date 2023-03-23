@@ -1,4 +1,4 @@
-package parking;
+package parking.object;
 
 import java.util.HashMap;
 import java.util.Map;

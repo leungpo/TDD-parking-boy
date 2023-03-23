@@ -1,4 +1,4 @@
-package parking;
+package parking.exception;
 
 public class IncorrectReceiptException extends RuntimeException {
     public IncorrectReceiptException() {

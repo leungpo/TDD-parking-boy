@@ -4,6 +4,12 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import parking.exception.IncorrectReceiptException;
+import parking.exception.NoSeatException;
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
+import parking.parkingBoy.ParkingBoy;
 
 import java.util.ArrayList;
 import java.util.List;

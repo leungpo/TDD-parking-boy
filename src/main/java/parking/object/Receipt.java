@@ -1,4 +1,4 @@
-package parking;
+package parking.object;
 
 public class Receipt {
     private String carName;

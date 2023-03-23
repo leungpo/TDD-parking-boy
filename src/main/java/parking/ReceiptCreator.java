@@ -1,5 +1,9 @@
 package parking;
 
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
+
 public class ReceiptCreator {
 
     public static Receipt createReceipt(Car car, ParkingLot parkingLot) {

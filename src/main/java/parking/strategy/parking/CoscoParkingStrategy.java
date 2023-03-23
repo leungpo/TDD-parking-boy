@@ -1,10 +1,14 @@
-package parking;
+package parking.strategy.parking;
 
-import java.util.ArrayList;
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
+import parking.ReceiptCreator;
+
 import java.util.Comparator;
 import java.util.List;
 
-public class CoscoParkingStrategy extends AbstractParkingStrategy{
+public class CoscoParkingStrategy extends AbstractParkingStrategy {
 
 
     private static List<ParkingLot> parkingLots;

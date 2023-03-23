@@ -2,6 +2,10 @@ package parking;
 
 import org.junit.Assert;
 import org.junit.Test;
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
+import parking.parkingBoy.OoclParkingBoy;
 
 import java.util.ArrayList;
 import java.util.List;

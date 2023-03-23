@@ -1,11 +1,16 @@
-package parking;
+package parking.strategy.fetching;
+
+import parking.object.Car;
+import parking.exception.IncorrectReceiptException;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
 
 import java.util.List;
 
-public class StandardFetchingStrategy extends AbstractFetchingStrategy{
+public class StandardFetchingStrategy extends AbstractFetchingStrategy {
 
 
-    protected StandardFetchingStrategy(List<ParkingLot> parkingLots) {
+    public StandardFetchingStrategy(List<ParkingLot> parkingLots) {
         super(parkingLots);
     }
 

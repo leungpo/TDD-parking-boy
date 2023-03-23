@@ -1,6 +1,12 @@
 package parking;
 
-import java.util.ArrayList;
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
+import parking.strategy.parking.AbstractParkingStrategy;
+import parking.strategy.parking.CoscoParkingStrategy;
+import parking.strategy.parking.OoclParkingStrategy;
+
 import java.util.List;
 
 public class ParkingManager{

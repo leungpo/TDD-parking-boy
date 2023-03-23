@@ -1,4 +1,10 @@
-package parking;
+package parking.parkingBoy;
+
+import parking.object.Car;
+import parking.object.ParkingLot;
+import parking.object.Receipt;
+import parking.strategy.fetching.StandardFetchingStrategy;
+import parking.strategy.parking.StandardParkingStrategy;
 
 import java.util.ArrayList;
 import java.util.List;

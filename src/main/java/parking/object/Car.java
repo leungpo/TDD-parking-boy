@@ -1,4 +1,4 @@
-package parking;
+package parking.object;
 
 public class Car {
     private String name;
