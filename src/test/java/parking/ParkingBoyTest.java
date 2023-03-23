@@ -63,6 +63,22 @@ public class ParkingBoyTest {
     }
 
     @Test
+    public void should_return_incorrectReceiptException_when_fetch_car_given_incorrect_receipt() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+        parkingBoy.park(car);
+        //when
+        Receipt fakeReceipt = new Receipt();
+        //then
+        exceptionRule.expect(IncorrectReceiptException.class);
+        exceptionRule.expectMessage("Incorrect Receipt");
+        parkingBoy.fetch(fakeReceipt);
+
+    }
+
+    @Test
     public void should_return_car_when_fetch_car_given_parking_lot() {
         //given
         ParkingLot parkingLot = new ParkingLot(1);

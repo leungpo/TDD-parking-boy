@@ -13,7 +13,7 @@ public class StandardFetchingStrategy extends AbstractFetchingStrategy{
         ParkingLot selectedParkingLot = parkingLots.stream()
                 .filter(parkingLot -> parkingLot.getParkingCar().containsKey(receipt))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(IncorrectReceiptException::new);
         return selectedParkingLot.getParkingCar().get(receipt);
     }
 }
