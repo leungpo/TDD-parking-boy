@@ -9,6 +9,10 @@ public class CoscoParkingBoy extends ParkingBoy{
 
     CoscoParkingStrategy coscoParkingStrategy = new CoscoParkingStrategy();
 
+    public CoscoParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
+    }
+
     @Override
     public Receipt park(Car car, ParkingLot parkingLot) {
         return coscoParkingStrategy.park(car, parkingLot);

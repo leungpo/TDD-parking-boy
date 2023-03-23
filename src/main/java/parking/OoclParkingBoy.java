@@ -6,6 +6,11 @@ import java.util.List;
 public class OoclParkingBoy extends ParkingBoy{
 
     OoclParkingStrategy ooclParkingStrategy = new OoclParkingStrategy();
+
+    public OoclParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
+    }
+
     @Override
     public Receipt park(Car car, ParkingLot parkingLot) {
         return ooclParkingStrategy.park(car,parkingLot);

@@ -16,10 +16,10 @@ public class ParkingBoyTest {
     @Test
     public void test_given_car_when_park_then_the_car_is_parked(){
         //GIVEN
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
         car.setName(CAR_NAME);
-        ParkingLot parkingLot = new ParkingLot();
 
         //WHEN
         Receipt receipt = parkingBoy.park(car, parkingLot);
@@ -32,10 +32,10 @@ public class ParkingBoyTest {
     @Test
     public void should_return_receipt_when_park_car_given_multiple_parking_lot() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        List<ParkingLot> parkingLots = createMultipleParkingLots();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
         car.setName(CAR_NAME);
-        List<ParkingLot> parkingLots = createMultipleParkingLots();
         //when
         Receipt receipt = parkingBoy.park(car, parkingLots);
         //then
@@ -45,10 +45,10 @@ public class ParkingBoyTest {
     @Test
     public void should_return_car_when_fetch_car_given_parking_lot() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
         car.setName(CAR_NAME);
-        ParkingLot parkingLot = new ParkingLot();
         Receipt receipt = parkingBoy.park(car, parkingLot);
         //when
         Car receivedCar = parkingBoy.fetch(receipt, parkingLot);
@@ -59,10 +59,10 @@ public class ParkingBoyTest {
     @Test
     public void should_return_car_when_fetch_car_given_multiple_parking_lot() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        List<ParkingLot> parkingLots = createMultipleParkingLots();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
         car.setName(CAR_NAME);
-        List<ParkingLot> parkingLots = createMultipleParkingLots();
         Receipt receipt = parkingBoy.park(car, parkingLots);
         //when
         Car receivedCar = parkingBoy.fetch(receipt, parkingLots);

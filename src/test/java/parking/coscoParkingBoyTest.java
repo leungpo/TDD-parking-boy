@@ -15,10 +15,10 @@ public class coscoParkingBoyTest {
     @Test
     public void should_return_car_in_most_available_space_parking_lot_when_park_car_given_cosco_parking_boy_and_multiple_parking_lot() {
         //given
-        CoscoParkingBoy coscoparkingBoy = new CoscoParkingBoy();
+        List<ParkingLot> parkingLots = createMultipleParkingLots();
+        CoscoParkingBoy coscoparkingBoy = new CoscoParkingBoy(parkingLots);
         Car car = new Car();
         car.setName(CAR_NAME);
-        List<ParkingLot> parkingLots = createMultipleParkingLots();
         //when
         Receipt receipt = coscoparkingBoy.park(car, parkingLots);
         //then
