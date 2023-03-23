@@ -22,7 +22,7 @@ public class ParkingBoyTest {
         car.setName(CAR_NAME);
 
         //WHEN
-        Receipt receipt = parkingBoy.park(car, parkingLot);
+        Receipt receipt = parkingBoy.park(car);
 
         //THEN
         Assert.assertEquals(CAR_NAME, receipt.getCarName());
@@ -37,7 +37,7 @@ public class ParkingBoyTest {
         Car car = new Car();
         car.setName(CAR_NAME);
         //when
-        Receipt receipt = parkingBoy.park(car, parkingLots);
+        Receipt receipt = parkingBoy.park(car);
         //then
         Assert.assertNotNull(receipt);
     }
@@ -49,9 +49,9 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
         car.setName(CAR_NAME);
-        Receipt receipt = parkingBoy.park(car, parkingLot);
+        Receipt receipt = parkingBoy.park(car);
         //when
-        Car receivedCar = parkingBoy.fetch(receipt, parkingLot);
+        Car receivedCar = parkingBoy.fetch(receipt);
         //then
         Assert.assertEquals(car,receivedCar);
     }
@@ -63,9 +63,9 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
         car.setName(CAR_NAME);
-        Receipt receipt = parkingBoy.park(car, parkingLots);
+        Receipt receipt = parkingBoy.park(car);
         //when
-        Car receivedCar = parkingBoy.fetch(receipt, parkingLots);
+        Car receivedCar = parkingBoy.fetch(receipt);
         //then
         Assert.assertEquals(car, receivedCar);
     }

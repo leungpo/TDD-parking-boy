@@ -20,7 +20,7 @@ public class coscoParkingBoyTest {
         Car car = new Car();
         car.setName(CAR_NAME);
         //when
-        Receipt receipt = coscoparkingBoy.park(car, parkingLots);
+        Receipt receipt = coscoparkingBoy.park(car);
         //then
         Assert.assertEquals(PARKING_LOT_TWO,receipt.getParkingLotName());
     }

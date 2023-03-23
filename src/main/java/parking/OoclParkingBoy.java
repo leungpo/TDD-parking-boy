@@ -1,22 +1,16 @@
 package parking;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class OoclParkingBoy extends ParkingBoy{
-
-    OoclParkingStrategy ooclParkingStrategy = new OoclParkingStrategy();
 
     public OoclParkingBoy(List<ParkingLot> parkingLots) {
         super(parkingLots);
     }
 
     @Override
-    public Receipt park(Car car, ParkingLot parkingLot) {
-        return ooclParkingStrategy.park(car,parkingLot);
-    }
-    @Override
-    public Receipt park(Car car, List<ParkingLot> parkingLots) {
-        return ooclParkingStrategy.park(car, parkingLots);
+    public Receipt park(Car car) {
+        OoclParkingStrategy ooclParkingStrategy = new OoclParkingStrategy(parkingLots);
+        return ooclParkingStrategy.park(car);
     }
 }

@@ -15,11 +15,11 @@ public class ParkingManagerTest {
     public void should_like_cosco_parking_boy_when_park_given_Monday() {
         //given
         int weekday = 1;
-        ParkingManager parkingManager = new ParkingManager(weekday);
+        List<ParkingLot> parkingLots = createMultipleParkingLots();
+        ParkingManager parkingManager = new ParkingManager(weekday, parkingLots);
         Car car = new Car();
         car.setName(CAR_NAME);
-        List<ParkingLot> parkingLots = createMultipleParkingLots();
-        Receipt receipt = parkingManager.park(car, parkingLots);
+        Receipt receipt = parkingManager.park(car);
         //then
         Assert.assertEquals(PARKING_LOT_ONE,receipt.getParkingLotName());
 
@@ -29,11 +29,11 @@ public class ParkingManagerTest {
     public void should_like_oocl_parking_boy_when_park_given_Tuesday() {
         //given
         int weekday = 2;
-        ParkingManager parkingManager = new ParkingManager(weekday);
+        List<ParkingLot> parkingLots = createMultipleParkingLots();
+        ParkingManager parkingManager = new ParkingManager(weekday, parkingLots);
         Car car = new Car();
         car.setName(CAR_NAME);
-        List<ParkingLot> parkingLots = createMultipleParkingLots();
-        Receipt receipt = parkingManager.park(car, parkingLots);
+        Receipt receipt = parkingManager.park(car);
         //then
         Assert.assertEquals(PARKING_LOT_TWO,receipt.getParkingLotName());
 

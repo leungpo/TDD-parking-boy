@@ -3,11 +3,9 @@ package parking;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingBoy{
+public class ParkingBoy {
 
-    StandardParkingStrategy standardParkingStrategy = new StandardParkingStrategy();
-    StandardFetchingStrategy standardFetchingStrategy = new StandardFetchingStrategy();
-    List<ParkingLot> parkingLots = new ArrayList<>();
+    protected List<ParkingLot> parkingLots;
 
     public ParkingBoy(ParkingLot parkingLot) {
         List<ParkingLot> parkingLots = new ArrayList<>();
@@ -19,19 +17,13 @@ public class ParkingBoy{
         this.parkingLots = parkingLots;
     }
 
-    public Receipt park(Car car, ParkingLot parkingLot) {
-        return standardParkingStrategy.park(car, parkingLot);
+    public Receipt park(Car car) {
+        StandardParkingStrategy standardParkingStrategy = new StandardParkingStrategy(parkingLots);
+        return standardParkingStrategy.park(car);
     }
 
-    public Receipt park(Car car, List<ParkingLot> parkingLots) {
-        return standardParkingStrategy.park(car, parkingLots);
-    }
-
-    public Car fetch(Receipt receipt, ParkingLot parkingLot) {
-        return standardFetchingStrategy.fetch(receipt, parkingLot);
-    }
-
-    public Car fetch(Receipt receipt, List<ParkingLot> parkingLots) {
-        return standardFetchingStrategy.fetch(receipt, parkingLots);
+    public Car fetch(Receipt receipt) {
+        StandardFetchingStrategy standardFetchingStrategy = new StandardFetchingStrategy(parkingLots);
+        return standardFetchingStrategy.fetch(receipt);
     }
 }

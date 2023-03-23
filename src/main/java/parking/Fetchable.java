@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface Fetchable {
 
-    public Car fetch(Receipt receipt, ParkingLot parkingLot);
-    public Car fetch(Receipt receipt, List<ParkingLot> parkingLots);
+
+
+    public Car fetch(Receipt receipt);
 }

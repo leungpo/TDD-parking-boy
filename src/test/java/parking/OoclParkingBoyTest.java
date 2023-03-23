@@ -20,7 +20,7 @@ public class OoclParkingBoyTest {
         Car car = new Car();
         car.setName(CAR_NAME);
         //when
-        Receipt receipt = ooclParkingBoy.park(car, parkingLots);
+        Receipt receipt = ooclParkingBoy.park(car);
         //then
         Assert.assertEquals(PARKING_LOT_ONE,receipt.getParkingLotName());
     }

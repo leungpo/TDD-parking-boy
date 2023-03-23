@@ -7,19 +7,14 @@ import java.util.List;
 
 public class CoscoParkingBoy extends ParkingBoy{
 
-    CoscoParkingStrategy coscoParkingStrategy = new CoscoParkingStrategy();
-
     public CoscoParkingBoy(List<ParkingLot> parkingLots) {
         super(parkingLots);
     }
 
     @Override
-    public Receipt park(Car car, ParkingLot parkingLot) {
-        return coscoParkingStrategy.park(car, parkingLot);
-    }
-    @Override
-    public Receipt park(Car car, List<ParkingLot> parkingLots) {
-        return coscoParkingStrategy.park(car, parkingLots);
+    public Receipt park(Car car) {
+        CoscoParkingStrategy coscoParkingStrategy = new CoscoParkingStrategy(parkingLots);
+        return coscoParkingStrategy.park(car);
     }
 
 }

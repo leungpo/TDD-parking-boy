@@ -5,11 +5,11 @@ import java.util.List;
 public class StandardFetchingStrategy extends AbstractFetchingStrategy{
 
 
-    public Car fetch(Receipt receipt, ParkingLot parkingLot) {
-        return parkingLot.getParkingCar().get(receipt);
+    protected StandardFetchingStrategy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
     }
 
-    public Car fetch(Receipt receipt, List<ParkingLot> parkingLots) {
+    public Car fetch(Receipt receipt) {
         ParkingLot selectedParkingLot = parkingLots.stream()
                 .filter(parkingLot -> parkingLot.getParkingCar().containsKey(receipt))
                 .findFirst()
