@@ -41,12 +41,10 @@ public class ParkingManagerTest {
 
     private static List<ParkingLot> createMultipleParkingLots() {
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLotOne = new ParkingLot();
+        ParkingLot parkingLotOne = new ParkingLot(1);
         parkingLotOne.setParkingLotName(PARKING_LOT_ONE);
-        parkingLotOne.setCapacity(1);
-        ParkingLot parkingLotTwo = new ParkingLot();
+        ParkingLot parkingLotTwo = new ParkingLot(2);
         parkingLotTwo.setParkingLotName(PARKING_LOT_TWO);
-        parkingLotTwo.setCapacity(2);
         parkingLots.add(parkingLotOne);
         parkingLots.add(parkingLotTwo);
         return parkingLots;

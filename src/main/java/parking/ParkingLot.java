@@ -7,6 +7,10 @@ public class ParkingLot {
     private String parkingLotName;
     private int capacity;
 
+    public ParkingLot(int capacity) {
+        this.capacity = capacity;
+    }
+
     private Map<Receipt, Car> parkedCar = new HashMap<>();
 
     public String getParkingLotName() {
@@ -27,5 +31,9 @@ public class ParkingLot {
 
     public Map<Receipt, Car> getParkingCar() {
         return parkedCar;
+    }
+
+    public boolean isFull() {
+        return parkedCar.size() == capacity;
     }
 }

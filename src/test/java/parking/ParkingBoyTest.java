@@ -1,7 +1,9 @@
 package parking;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +15,12 @@ public class ParkingBoyTest {
     public static final String PARKING_LOT_ONE = "parkingLotOne";
     public static final String PARKING_LOT_TWO = "parkingLotTwo";
 
+    @Rule
+    public ExpectedException exceptionRule = ExpectedException.none();
     @Test
     public void test_given_car_when_park_then_the_car_is_parked(){
         //GIVEN
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(1);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
         car.setName(CAR_NAME);
@@ -43,9 +47,25 @@ public class ParkingBoyTest {
     }
 
     @Test
+    public void should_return_noseatexception_when_park_car_given_parking_lot() {
+        //given
+        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car1 = new Car();
+        parkingBoy.park(car1);
+        Car car2 = new Car();
+        //when
+        exceptionRule.expect(NoSeatException.class);
+        exceptionRule.expectMessage("No Seat");
+        parkingBoy.park(car2);
+        //then
+
+    }
+
+    @Test
     public void should_return_car_when_fetch_car_given_parking_lot() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(1);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Car car = new Car();
         car.setName(CAR_NAME);
@@ -72,12 +92,10 @@ public class ParkingBoyTest {
 
     private static List<ParkingLot> createMultipleParkingLots() {
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLotOne = new ParkingLot();
+        ParkingLot parkingLotOne = new ParkingLot(1);
         parkingLotOne.setParkingLotName(PARKING_LOT_ONE);
-        parkingLotOne.setCapacity(1);
-        ParkingLot parkingLotTwo = new ParkingLot();
+        ParkingLot parkingLotTwo = new ParkingLot(2);
         parkingLotTwo.setParkingLotName(PARKING_LOT_TWO);
-        parkingLotTwo.setCapacity(2);
         parkingLots.add(parkingLotOne);
         parkingLots.add(parkingLotTwo);
         return parkingLots;

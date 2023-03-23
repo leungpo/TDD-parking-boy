@@ -10,9 +10,14 @@ public class StandardParkingStrategy extends AbstractParkingStrategy{
     }
 
     public Receipt park(Car car) {
-        ParkingLot selectedParkingLot = parkingLots.get(0);
+        ParkingLot selectedParkingLot = parkingLots
+                .stream()
+                .filter(parkingLot -> !parkingLot.isFull())
+                .findFirst()
+                .orElseThrow(NoSeatException::new);
         Receipt receipt = ReceiptCreator.createReceipt(car,selectedParkingLot);
         selectedParkingLot.getParkingCar().put(receipt, car);
+
         return receipt;
     }
 
